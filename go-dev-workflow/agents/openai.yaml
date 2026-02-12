@@ -1,0 +1,4 @@
+interface:
+  display_name: "Go 開発手順"
+  short_description: "Goプロジェクトをgo mod initから開発運用まで支援"
+  default_prompt: "$go-dev-workflow を使って、go mod init から build/test/vet/tidy までの開発手順をこのリポジトリ向けに整理して。"
