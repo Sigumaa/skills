@@ -25,6 +25,12 @@
 - Codexで解決しない場合は `claude-opus-4.6` を優先フォールバックにする
 - `claude-opus-4.6-fast` は現状利用しない（プラン非対応）
 
+## チャネル選択（重要）
+
+- Codex 系モデルを使う場合は `sub-agent` を優先する
+- Copilot 経由モデル（Opus/Sonnet/Haiku/Gemini/GPT-4.1 など）を使う場合は `copilot` を使う
+- 一次判断は `sub-agent`（Codex）で行い、詰まったときだけ `copilot --model claude-opus-4.6` を使う
+
 ## 選定ルール
 
 1. 深い設計比較・難しい意思決定
@@ -49,6 +55,11 @@
 - 結論が曖昧で confidence が `low` のまま
 - 同じ制約で2回以上照会しても改善しない
 - 代替案は出るが採用判断に必要な根拠が不足している
+
+6. 実行順の推奨
+- 1st: `sub-agent` + Codex 系モデル（既定）
+- 2nd: `copilot --model claude-opus-4.6`（フォールバック）
+- 3rd: 必要時のみ challenger を追加
 
 ## 実行テンプレート
 

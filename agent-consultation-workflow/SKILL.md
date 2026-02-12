@@ -24,12 +24,12 @@ description: 不明点を外部AI（sub-agentやcopilotなど）への照会で�
 
 1. 不明点を1文で定義する  
 2. 決めるべき意思決定を1つに絞る  
-3. 照会先を決める（sub-agent / copilot / 他）
+3. 照会先の候補を決める（sub-agent / copilot / 他）
 
 出力:
 - `question_focus`
 - `decision_needed`
-- `target_agent`
+- `target_agent_candidate`
 
 ## フェーズ2: モデル選定
 
@@ -40,10 +40,16 @@ description: 不明点を外部AI（sub-agentやcopilotなど）への照会で�
 - 速度重視の当たり付け: 軽量モデルを優先
 - 迷う場合: primary 1つ + challenger 1つで2本照会
 
+チャネル選択ルール:
+- `preferred_model` が Codex 系 (`gpt-*-codex`) の場合: `target_agent = sub-agent`
+- `preferred_model` が Opus/Sonnet/Gemini など Copilot 経由モデルの場合: `target_agent = copilot`
+- 2モデル比較時は primary を先に実行し、必要時に challenger を実行する
+
 出力:
 - `preferred_model`
 - `challenger_model`（必要時）
 - `selection_reason`
+- `target_agent`
 
 ## フェーズ3: 背景パッケージ作成
 

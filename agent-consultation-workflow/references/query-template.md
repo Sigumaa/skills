@@ -16,7 +16,7 @@
 - objective: 不明点を解消して実装判断を確定する
 
 [照会設定]
-- target_agent:
+- target_agent: (sub-agent | copilot)
 - preferred_model:
 - challenger_model: (optional)
 
