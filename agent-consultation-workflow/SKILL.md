@@ -31,7 +31,20 @@ description: 不明点を外部AI（sub-agentやcopilotなど）への照会で�
 - `decision_needed`
 - `target_agent`
 
-## フェーズ2: 背景パッケージ作成
+## フェーズ2: モデル選定
+
+`references/model-selection.md` を読み、照会対象に応じてモデルを選ぶ。
+
+- 深い設計比較: 高性能モデルを優先
+- 速度重視の当たり付け: 軽量モデルを優先
+- 迷う場合: primary 1つ + challenger 1つで2本照会
+
+出力:
+- `preferred_model`
+- `challenger_model`（必要時）
+- `selection_reason`
+
+## フェーズ3: 背景パッケージ作成
 
 `references/query-template.md` を使って、次を必ず埋める。
 
@@ -45,7 +58,7 @@ description: 不明点を外部AI（sub-agentやcopilotなど）への照会で�
 - 質問返しを禁止する
 - 不足情報があっても仮定を明示して結論まで返すよう要求する
 
-## フェーズ3: 一括照会
+## フェーズ4: 一括照会
 
 照会文には次の指示を含める。
 
@@ -53,9 +66,21 @@ description: 不明点を外部AI（sub-agentやcopilotなど）への照会で�
 - `回答は指定フォーマットで返してください`
 - `不確実性がある箇所は明示してください`
 
+Copilot へ照会する場合は `--model` を明示する。
+
+```bash
+copilot -s --model <preferred_model> --allow-all-tools --add-dir <repo_path> -p "<query>"
+```
+
+challenger を使う場合は同じ照会文で再実行する。
+
+```bash
+copilot -s --model <challenger_model> --allow-all-tools --add-dir <repo_path> -p "<query>"
+```
+
 複数照会先を使う場合は、同一の背景パッケージを使って比較可能性を確保する。
 
-## フェーズ4: 回答正規化
+## フェーズ5: 回答正規化
 
 `references/response-rubric.md` を使って回答を同じ軸で整理する。
 
@@ -66,7 +91,7 @@ description: 不明点を外部AI（sub-agentやcopilotなど）への照会で�
 - 信頼度
 - 追加で必要な確認事項
 
-## フェーズ5: 最終判断
+## フェーズ6: 最終判断
 
 1. 回答同士の一致点・相違点を分ける  
 2. 採用案を1つ選ぶ  

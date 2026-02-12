@@ -105,6 +105,8 @@ uv run --with pyyaml python .system/skill-creator/scripts/quick_validate.py <ski
 
 検証結果は `references/trigger-test-log.md` に追記する。
 
+不明点が残る場合は `$agent-consultation-workflow` を使い、背景情報とモデル指定付きで外部AI照会して結論を回収する。
+
 ## フェーズ7: 反復改善
 
 運用中に失敗例を収集し、次を更新する。

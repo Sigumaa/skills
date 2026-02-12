@@ -15,6 +15,11 @@
 - role: AI Agent
 - objective: 不明点を解消して実装判断を確定する
 
+[照会設定]
+- target_agent:
+- preferred_model:
+- challenger_model: (optional)
+
 [制約]
 - constraints:
 - forbidden_actions:
