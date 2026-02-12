@@ -36,3 +36,6 @@ dist/
 
 # Runtime logs
 *.log
+
+# Codex bundled system skills
+.system/
