@@ -1,0 +1,4 @@
+interface:
+  display_name: "外部AI照会手順"
+  short_description: "外部AI照会を背景付きで設計し結論回収まで支援する"
+  default_prompt: "$agent-consultation-workflow を使って、不明点の照会文を作り、結論まで回収して。"
