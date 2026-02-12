@@ -1,0 +1,4 @@
+interface:
+  display_name: "日本語 Skill 設計手順"
+  short_description: "日本語の高品質Skillを要件定義から検証まで支援する"
+  default_prompt: "$ja-skill-design-workflow を使って、要件確認から検証まで手順に沿って日本語Skillを設計して。"
