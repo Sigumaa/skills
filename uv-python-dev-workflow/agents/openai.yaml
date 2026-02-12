@@ -1,0 +1,4 @@
+interface:
+  display_name: "uv Python 開発手順"
+  short_description: "uvでのPython初期化から実装テスト運用まで支援"
+  default_prompt: "$uv-python-dev-workflow を使って、このPythonプロジェクトの初期化から実装とテストの進め方を整理して。"
