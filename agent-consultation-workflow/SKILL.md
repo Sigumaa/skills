@@ -35,7 +35,8 @@ description: 不明点を外部AI（sub-agentやcopilotなど）への照会で�
 
 `references/model-selection.md` を読み、照会対象に応じてモデルを選ぶ。
 
-- 深い設計比較: 高性能モデルを優先
+- 既定: Codex系の最新モデルを優先
+- Codexで詰まる場合: `claude-opus-4.6` へ切り替える
 - 速度重視の当たり付け: 軽量モデルを優先
 - 迷う場合: primary 1つ + challenger 1つで2本照会
 
