@@ -58,6 +58,7 @@ SKILL本文の章立てを先に設計し、本文は後から埋める。
 - frontmatterは `name` と `description` を必須で設定する
 - 本文は命令形で具体手順を書く
 - ツール実行コマンドは実行順で記載する
+- リポジトリに `AGENTS.md` がある場合は、作成・更新したskillの「使う条件」「使わない条件」「優先順」を追記または更新する
 
 ## フェーズ5: 品質ゲート
 `references/quality-gate.md` を使ってレビューする。
@@ -77,6 +78,7 @@ uv run --with pyyaml python .system/skill-creator/scripts/quick_validate.py <ski
 - 否定ケース5件以上で過剰適用しない
 - 曖昧ケース3件以上で期待挙動を定義できる
 - 隣接skillとの境界ケース3件以上で誤発火しない
+- `AGENTS.md` がある場合、当該skillの利用タイミング記述が `description` と矛盾しない
 期待挙動は次の3択で定義する。
 - 発火して処理する
 - 発火せず他skillへ委譲する
