@@ -1,0 +1,4 @@
+interface:
+  display_name: "サブエージェント進行管理"
+  short_description: "PM専任で委譲運用し、並列進行と意思決定ゲートを管理する"
+  default_prompt: "$subagent-manager-workflow を使って、PMとして進行管理のみを行い、実装・レビュー・テスト・コミットをサブエージェントへ委譲して進めて。"
