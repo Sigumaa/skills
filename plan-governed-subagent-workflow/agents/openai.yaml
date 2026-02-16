@@ -1,0 +1,4 @@
+interface:
+  display_name: "計画統制サブエージェント運用"
+  short_description: ".codex計画維持と委譲進行、必要時CI監視を一体運用"
+  default_prompt: "$plan-governed-subagent-workflow を使って、.codex計画に沿ってサブエージェントへ実装・レビュー・テスト・コミットを委譲し、必要ならgh-workflowでCIを監視して。"
