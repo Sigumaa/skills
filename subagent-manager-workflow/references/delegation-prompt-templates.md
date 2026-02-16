@@ -3,6 +3,8 @@
 ## 共通ルール
 - PMはテンプレートの必須項目を欠かさず記入する。
 - 依頼ごとに `task_id` と `depends_on` を明記する。
+- 依頼ごとに `.codex/PROPOSED_PLAN.md` の参照セクションID（`PP-xx`）を明記する。
+- `入力資料` には `.codex/PROPOSED_PLAN.md` を必ず含める。
 - 禁止事項は省略せず、担当外作業を明確にする。
 
 ## 実装担当テンプレート
@@ -10,6 +12,7 @@
 [実装委譲]
 - task_id:
 - depends_on:
+- plan_section_refs:
 - 目的:
 - 入力資料:
 - 変更対象:
@@ -29,6 +32,7 @@
 [レビュー委譲]
 - task_id:
 - depends_on:
+- plan_section_refs:
 - 目的:
 - 入力資料:
 - 観点:
@@ -48,6 +52,7 @@
 [テスト委譲]
 - task_id:
 - depends_on:
+- plan_section_refs:
 - 目的:
 - 入力資料:
 - 実行範囲:
@@ -67,6 +72,7 @@
 [コミット委譲]
 - task_id:
 - depends_on:
+- plan_section_refs:
 - 目的:
 - 入力資料:
 - 対象ファイル:

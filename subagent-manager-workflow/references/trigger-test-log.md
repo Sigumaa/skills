@@ -28,6 +28,11 @@
 | 2026-02-15 | subagent-manager-workflow | boundary | 技術判断とプロダクト判断が混在する相談が来る | 発火し、プロダクト判断のみユーザー相談する | 発火し、プロダクト判断のみユーザー相談する | pass | - |
 | 2026-02-15 | subagent-manager-workflow | boundary | `.codex` は揃っているが必須項目が欠落している | 発火し、欠落責務だけ最小差分で補完する | 発火し、欠落責務だけ最小差分で補完する | pass | - |
 | 2026-02-15 | subagent-manager-workflow | boundary | 復旧を2サイクル実施しても品質ゲートが通らない | 発火し、`decision-gates.md` に従いユーザー相談へ遷移する | 発火し、`decision-gates.md` に従いユーザー相談へ遷移する | pass | - |
+| 2026-02-16 | subagent-manager-workflow | positive | Plan mode後の計画を省略せず `.codex/PROPOSED_PLAN.md` に正本化したい | 発火し `proposed-plan-contract.md` と `proposed-plan-validation.md` を適用する | 発火し `proposed-plan-contract.md` と `proposed-plan-validation.md` を適用する | pass | - |
+| 2026-02-16 | subagent-manager-workflow | positive | 委譲プロンプトがどの計画セクションに依存するか固定したい | 発火し `delegation-prompt-templates.md` の `plan_section_refs` を適用する | 発火し `delegation-prompt-templates.md` の `plan_section_refs` を適用する | pass | - |
+| 2026-02-16 | subagent-manager-workflow | ambiguous | Proposed Planに未確定事項が残るが委譲を開始したい | 発火し、`decision-gates.md` の DG-07 を判定して確認質問を返す | 発火し、`decision-gates.md` の DG-07 を判定して確認質問を返す | pass | - |
+| 2026-02-16 | subagent-manager-workflow | boundary | Proposed Planに `TODO` が残っている | 発火し、`proposed-plan-validation.md` 不合格として再生成してから進行する | 発火し、`proposed-plan-validation.md` 不合格として再生成してから進行する | pass | - |
+| 2026-02-16 | subagent-manager-workflow | negative | Plan modeを使わず、要約だけで実装を始めたい | 発火せず他skillへ委譲する | 発火せず他skillへ委譲する | pass | - |
 
 ## quality gate 判定
 
@@ -43,11 +48,13 @@
 - failure recovery coverage: pass
 - decision gate clarity: pass
 - report format consistency: pass
+- proposed plan contract coverage: pass
+- proposed plan validation coverage: pass
 - description diff impact: pass
-  - 変更点: descriptionを200-400字目安へ再定義し、利用条件と非適用条件、再現用参照資料を明示
+  - 変更点: Plan mode後の `.codex/PROPOSED_PLAN.md` 正本化、暗黙知言語化、簡略化検知を追加
 
 ## quick_validate
 
 - command: `uv run --with pyyaml python /home/shiyui/.codex/skills/.system/skill-creator/scripts/quick_validate.py /home/shiyui/.codex/skills/subagent-manager-workflow`
 - result: pass
-- reason: frontmatter と構造の最小検証を完了
+- reason: frontmatter と構造の最小検証を完了（2026-02-16 Proposed Plan正本化改修後に再実行）

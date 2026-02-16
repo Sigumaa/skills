@@ -1,4 +1,4 @@
 interface:
   display_name: "サブエージェント進行管理"
-  short_description: "PM専任で委譲運用し、並列化・復旧・相談ゲートを統制する"
-  default_prompt: "$subagent-manager-workflow を使って、Plan確定後に .codex と .github の不足を判定して最小差分で補完し、PMは進捗管理だけを担当して、実装・レビュー・テスト・コミットを担当分離で委譲して進めて。並列化判定、委譲文、失敗復旧、相談ゲート、報告は references の固定ルールに従って。"
+  short_description: "PM専任でProposed Plan正本化と委譲運用を統制する"
+  default_prompt: "$subagent-manager-workflow を使って、Plan modeで確定した内容を .codex/PROPOSED_PLAN.md に省略なく書き出して正本化してから、.codex と .github の不足を判定して最小差分で補完し、PMは進捗管理だけを担当して、実装・レビュー・テスト・コミットを担当分離で委譲して進めて。並列化判定、委譲文、失敗復旧、相談ゲート、報告は references の固定ルールに従って。"
